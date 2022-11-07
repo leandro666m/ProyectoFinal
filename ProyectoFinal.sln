@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoFinal", "ProyectoFinal.csproj", "{BBB8A7F3-ABD9-46D9-A47D-0366A0B10733}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BlogDatabase", "..\BlodDatabase\BlogDatabase.sqlproj", "{2445E9E9-5D10-4835-9575-0812B7556955}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{BBB8A7F3-ABD9-46D9-A47D-0366A0B10733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBB8A7F3-ABD9-46D9-A47D-0366A0B10733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBB8A7F3-ABD9-46D9-A47D-0366A0B10733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2445E9E9-5D10-4835-9575-0812B7556955}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
