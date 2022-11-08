@@ -1,10 +1,13 @@
-﻿@model Publicacion
+﻿
+@model Publicacion
 
 @{
-    ViewData["imagen"] = "/assets/img/post-bg.jpg";
-    ViewData["Title"] = "Title Suerte";
+    ViewData["Title"] = Model.Titulo;
+    ViewData["imagen"] = Model.Imagen;
     ViewData["titleHeader"] = Model.Titulo;
     ViewData["subTitleHeader"] = Model.SubTitulo;
+    ViewData["Cuerpo"] = Model.Cuerpo;
 }
 
 <h1>@ViewData["Title"]</h1>
+<p>@ViewData["Cuerpo"]</p>
