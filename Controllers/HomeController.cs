@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProyectoFinal.Models;
 using ProyectoFinal.Rules;
 using System.Diagnostics;
@@ -14,7 +15,16 @@ namespace ProyectoFinal.Controllers {
         }
 
         public IActionResult Index( ) {
-            return View( );
+            var rule = new PublicacionRule(_configuration);
+            var posts = rule.GetPostHome( );
+            return View( posts );
+        }
+
+        public IActionResult Post( int id ) {
+            var rule = new PublicacionRule( _configuration );
+            var post = rule.GetPostById( id );
+
+            return View( post );
         }
         public IActionResult About( ) {
             return View( );
@@ -30,7 +40,24 @@ namespace ProyectoFinal.Controllers {
             return View( );
         }
 
+        [HttpPost]
+        public IActionResult Contact( Contact contacto ) {
+            if ( !ModelState.IsValid ) {
+                return View( "Contacto", contacto );
+            }
+            var rule = new ContactRule(_configuration);
+            var mensaje = @"<h1>Gracias por contactarnos</h1>
+                    <p>Hemos recibido tu correo exitosamente.</p>
+                    <p>A la brevedad nos pondremos en contacto</p>
+                    <hr/><p>Saludos</p> <p><b>Polo MC</b></p>";
+            //le manda un msj de confirmacion a la persona
+            rule.SendEmail( contacto.Email, mensaje, "Asunto Mensaje Recibido", "De quien: Polo Mina Clavero", "deQuienEmail: polo@polomc.com.ar" );
+            //me manda un msj a mi para que me quede el msj y el rtte
+            rule.SendEmail( "leandro666m@gmail.com", contacto.Mensaje, "Nuevo contacto", contacto.Nombre, contacto.Email );
 
+            return View( "Contacto" );
+
+        }
 
 
 
