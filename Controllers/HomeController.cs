@@ -19,13 +19,32 @@ namespace ProyectoFinal.Controllers {
             var posts = rule.GetPostHome( );
             return View( posts );
         }
-
+        public IActionResult Publicaciones( int cant = 5 , int pagina = 0) {
+            var rule = new PublicacionRule(_configuration);
+            var posts = rule.GetPublicaciones(  cant, pagina );
+            return View( posts );
+        }
         public IActionResult Post( int id ) {
             var rule = new PublicacionRule( _configuration );
             var post = rule.GetPostById( id );
 
             return View( post );
         }
+
+        [Authorize] //para q solo ingresen los loggeados
+        public IActionResult Nuevo(  ) {
+
+            return View(  );
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Add( Publicacion data   ) {
+            var rule= new PublicacionRule( _configuration);
+            rule.InsertPost( data );
+            return RedirectToAction("Index");
+        }
+
         public IActionResult About( ) {
             return View( );
         }

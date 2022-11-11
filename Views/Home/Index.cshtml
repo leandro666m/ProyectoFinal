@@ -6,31 +6,26 @@
     ViewData["subTitleHeader"] = "Index subtitle";
 }
 
-<div class="container px-4 px-lg-5">
-    <div class="row gx-4 gx-lg-5 justify-content-center">
-        <div class="col-md-10 col-lg-8 col-xl-7">
 
-            @foreach ( var item in Model ) {
-                
-                <!-- Post preview-->
-                <div class="post-preview">
-                    <a asp-action="post" asp-controller="home" asp-route-id=@item.Id> 
-                        <h2 class="post-title">@item.Titulo</h2>
-                        <h3 class="post-subtitle">@item.SubTitulo</h3>
-                    </a>
-                    <p class="post-meta"> Posted by <a href="#!">@item.Creador</a> on @item.Creacion.ToLongDateString(); </p>
-                </div>
+@foreach ( var item in Model ) {
 
-                <!-- Divider-->
-                <hr class="my-4" />
-            }
-
-
-            <!-- Pager-->
-            <div class="d-flex justify-content-end mb-4">
-                <a class="btn btn-primary text-uppercase" asp-action="publicaciones" asp-controller="home">Older Posts →</a>
-            </div>
-        </div>
+    <!-- Post preview-->
+    <div class="post-preview">
+        <a asp-action="post" asp-controller="home" asp-route-id=@item.Id>
+            <h2 class="post-title">@item.Titulo</h2>
+            <h3 class="post-subtitle">@item.SubTitulo</h3>
+        </a>
+        <p class="post-meta"> Posted by <a href="#!">@item.Creador</a> on @item.Creacion.ToLongDateString(); </p>
     </div>
+
+    <!-- Divider-->
+    <hr class="my-4" />
+}
+
+
+<!-- Pager-->
+<div class="d-flex justify-content-end mb-4">
+    <a class="btn btn-primary text-uppercase" asp-action="Publicaciones" asp-controller="Home" asp-route-pagina=1> Siguientes 5 -> </a>
 </div>
+
 
